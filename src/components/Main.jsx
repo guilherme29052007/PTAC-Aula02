@@ -2,57 +2,57 @@ import { useState } from "react";
 
 export default function Main(){
 
-let [nome, setNome] = useState("");
-let [telefone, setTelefone] = useState(0);
-let Lista = [Lista,setLista] = useState([]) ;
+ const [nome, setNome] = useState("");
+ const [Numero, setNumero] = useState();
+ const [Lista, setLista] = useState([]) ;
 
-let regis= (event) => {
-    event.preventDefault()
+let contato= (event) => {
+    event.preventDefault();
+    setLista([...Lista,{
+      nomeSalvo:nome,
+      NumeroSalvo:Numero
+    }]);
 }
+console.table(Lista)
 
 
 return(
 <main>
 
-<form id="nome">
+<form id="nome" onSubmit={contato}>
 
-<label> nome 
-<input
-  type="text"
-  name="nome"
-  id="nome" 
+<label htmlFor="">nome: 
+  <input
+   type="text"
+   name="nome"
+   id="nome" 
+   value={nome}
   
   onChange={(event)=> setNome(event.target.value)}/>
 </label>{nome}
 
-</form>
 
 
-<form id="telefone">
 
-<label> telefone 
-<input 
-  type="tel"
-  name="telefone" 
-  id="tel" 
-  value={telefone} 
+
+
+<label> Numero <input 
+  type="telefone"
+  name="Numero" 
+  id="telefone" 
+  value={Numero} 
  
-  onChange={(event)=> setTelefone(event.target.value)}/>
-</label>{telefone}
+  onChange={(event)=> setNumero(event.target.value)}/>
+</label>{Numero}
 
-<button id="b1">salvar</button>
+    <button id="b1">salvar</button>
 
 </form>
-
-
-
-
-</main>
-
-
-
-
-);
-
-
+{
+Lista.map((contato, index) => <div key={index}> 
+<p>{contato.nomeSalvo}</p> 
+<p>{contato.NumeroSalvo}</p> </div>)
+}
+   </main>
+ );
 }

@@ -1,7 +1,7 @@
 export default function Header(){
     return(
-        <header>
-            <h1>i have a dream</h1>
+        <header id="head">
+            <h1>LISTA TELEFÔNICA</h1>
         </header>
     );
     }

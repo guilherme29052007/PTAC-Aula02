@@ -4,8 +4,8 @@ import Main from "./components/Main"
  import "./globals.css";
 export default function App() {
 
-  const nome = "guilherne";
-  const sobreNome = "Grabiela";
+  const nome = "Guilherne";
+  const sobreNome = "Pereira Marques";
 
   return(
     <div>
